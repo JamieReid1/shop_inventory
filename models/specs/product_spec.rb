@@ -1,7 +1,6 @@
 
 require('minitest/autorun')
 require('minitest/rg')
-require('pry')
 require_relative('../product')
 
 
@@ -25,6 +24,22 @@ class TestProduct < MiniTest::Test
 
   def test_product_name()
     assert_equal('Superlite 17B', @product.name)
+  end
+
+  def test_product_category()
+    assert_equal('helmets', @product.category)
+  end
+
+  def test_product_description()
+    assert_equal('Carbon fibre shell with yoke and clamp neck dam.', @product.description)
+  end
+
+  def test_product_cost__buy()
+    assert_equal(3000, @product.buy_cost)
+  end
+
+  def test_product_cost__sell()
+    assert_equal(5000, @product.sell_cost)
   end
 
 
