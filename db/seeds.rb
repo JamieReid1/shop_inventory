@@ -6,6 +6,7 @@ require_relative('../models/stock')
 
 
 Product.delete_all()
+Manufacturer.delete_all()
 
 product1 = Product.new({ 'name' => 'Superlite 17B',
                          'category' => 'helmets',
@@ -78,24 +79,28 @@ manufacturer1 = Manufacturer.new({ 'name' => 'Kirby Morgan',
                                    'tel_no' => '(805) 928-7772',
                                    'rep_name' => 'Dusty Johnson'
                                   })
+manufacturer1.save()
 
 manufacturer2 = Manufacturer.new({ 'name' => 'Submarine Manufacturing & Products',
                                    'address' => 'Blackpool Road, Newton, Preston, Lancashire, United Kingdom, PR4 3RE',
                                    'tel_no' => '01772 687 775',
                                    'rep_name' => 'James Middleton'
                                   })
+manufacturer2.save()
 
 manufacturer3 = Manufacturer.new({ 'name' => 'Apeks Marine Equipment',
                                    'address' => 'Neptune Way, Blackburn, United Kingdom, BB1 2BT',
                                    'tel_no' => '01254 692 200',
                                    'rep_name' => 'Kenneth Black'
                                   })
+manufacturer3.save()
 
 manufacturer4 = Manufacturer.new({ 'name' => 'Northern Diver',
                                    'address' => 'Appley Lane North, Appley Bridge, Wigan, Lancashire, WN6 9AE',
                                    'tel_no' => '01257 254 444',
                                    'rep_name' => 'Andrew Hardy'
                                   })
+manufacturer4.save()
 
 stock_item1 = Stock.new({ 'product_id' => product1.id, 'manufacturer_id' => manufacturer1.id, 'quantity' => 2 })
 
@@ -112,6 +117,7 @@ stock_item6 = Stock.new({ 'product_id' => product6.id, 'manufacturer_id' => manu
 stock_item7 = Stock.new({ 'product_id' => product7.id, 'manufacturer_id' => manufacturer4.id, 'quantity' => 20 })
 
 stock_item8 = Stock.new({ 'product_id' => product8.id, 'manufacturer_id' => manufacturer4.id, 'quantity' => 10 })
+
 
 
 # binding.pry
