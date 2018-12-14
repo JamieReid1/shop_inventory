@@ -1,8 +1,11 @@
 
+require('pry')
 require_relative('../models/manufacturer')
 require_relative('../models/product')
 require_relative('../models/stock')
 
+
+Product.delete_all()
 
 product1 = Product.new({ 'name' => 'Superlite 17B',
                          'category' => 'helmets',
@@ -10,6 +13,7 @@ product1 = Product.new({ 'name' => 'Superlite 17B',
                          'buy_cost' => 4000,
                          'sell_cost' => 5600
                         })
+product1.save()
 
 product2 = Product.new({ 'name' => 'Superlite 27',
                          'category' => 'helmets',
@@ -17,6 +21,7 @@ product2 = Product.new({ 'name' => 'Superlite 27',
                          'buy_cost' => 4200,
                          'sell_cost' => 5800
                         })
+product2.save()
 
 product3 = Product.new({ 'name' => '37SS',
                          'category' => 'helmets',
@@ -24,6 +29,7 @@ product3 = Product.new({ 'name' => '37SS',
                          'buy_cost' => 5900,
                          'sell_cost' => 7500
                         })
+product3.save()
 
 product4 = Product.new({ 'name' => 'SMP Fibroline 100m',
                          'category' => 'umbillicals',
@@ -31,6 +37,7 @@ product4 = Product.new({ 'name' => 'SMP Fibroline 100m',
                          'buy_cost' => 3000,
                          'sell_cost' => 4500
                         })
+product4.save()
 
 product5 = Product.new({ 'name' => 'DS1 DIN',
                          'category' => 'first stages',
@@ -38,6 +45,7 @@ product5 = Product.new({ 'name' => 'DS1 DIN',
                          'buy_cost' => 130,
                          'sell_cost' => 200
                         })
+product5.save()
 
 product6 = Product.new({ 'name' => 'DS1 A-clamp',
                          'category' => 'first stages',
@@ -45,6 +53,7 @@ product6 = Product.new({ 'name' => 'DS1 A-clamp',
                          'buy_cost' => 80,
                          'sell_cost' => 130
                         })
+product6.save()
 
 product7 = Product.new({ 'name' => '5mm Neoprene Gloves',
                          'category' => 'gloves',
@@ -52,6 +61,7 @@ product7 = Product.new({ 'name' => '5mm Neoprene Gloves',
                          'buy_cost' => 7,
                          'sell_cost' => 15
                         })
+product7.save()
 
 product8 = Product.new({ 'name' => '5mm Kevlar® Superstretch Gloves',
                          'category' => 'gloves',
@@ -59,6 +69,9 @@ product8 = Product.new({ 'name' => '5mm Kevlar® Superstretch Gloves',
                          'buy_cost' => 20,
                          'sell_cost' => 30
                         })
+product8.save()
+
+#Product.all()
 
 manufacturer1 = Manufacturer.new({ 'name' => 'Kirby Morgan',
                                    'address' => '1430 Jason Way, Santa Maria, CA 93455, USA',
@@ -99,3 +112,7 @@ stock_item6 = Stock.new({ 'product_id' => product6.id, 'manufacturer_id' => manu
 stock_item7 = Stock.new({ 'product_id' => product7.id, 'manufacturer_id' => manufacturer4.id, 'quantity' => 20 })
 
 stock_item8 = Stock.new({ 'product_id' => product8.id, 'manufacturer_id' => manufacturer4.id, 'quantity' => 10 })
+
+
+# binding.pry
+# nil
