@@ -1,1 +1,19 @@
 
+h1  {
+  color: blue;
+}
+
+table {
+  margin: 0 50px;
+  border-collapse: collapse;
+}
+th {
+  padding: 4px 30px 4px 8px;
+  background-color: rgb(37, 93, 168);
+  text-align: left;
+  color: white;
+
+}
+td {
+  border: 1px solid lightgrey;
+}
