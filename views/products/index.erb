@@ -1,0 +1,26 @@
+
+<h1> Products </h1>
+
+<table>
+  <tr>
+    <th> Name </th>
+    <th> Category </th>
+    <th> Description </th>
+    <th> Buy Cost </th>
+    <th> Sell Cost </th>
+    <th> Quantity </th>
+    <th> </th>
+    <th> </th>
+  </tr>
+  <% for product in @products %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.category %></td>
+    <td><%= product.description %></td>
+    <td><%= product.buy_cost %></td>
+    <td><%= product.sell_cost %></td>
+    <td><%= product.quantity %></td>
+    
+  </tr>
+  <% end %>
+</table>

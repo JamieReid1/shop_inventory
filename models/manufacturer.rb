@@ -65,8 +65,8 @@ class Manufacturer
 
   def products()
     sql = "SELECT products.* FROM
-           products INNER JOIN stock_items
-           ON products.id = stock_items.product_id WHERE stock_items.manufacturer_id = $1"
+           products INNER JOIN stocks
+           ON products.id = stocks.product_id WHERE stocks.manufacturer_id = $1"
     values = [@id]
     products = SqlRunner.run(sql, values)
     return products.map { |product| Product.new(product) }
