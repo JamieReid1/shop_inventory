@@ -20,7 +20,16 @@
     <td><%= product.buy_cost %></td>
     <td><%= product.sell_cost %></td>
     <td><%= product.quantity %></td>
-    
+    <td>
+      <form action="/products/manufacturer" method="get">
+        <button type="submit"> Manufacturer </button>
+      </form>
+    </td>
+    <td>
+      <form action="/products/<%= product.id %>" method="get">
+        <button type="submit"> Update </button>
+      </form>
+    </td>
   </tr>
   <% end %>
 </table>
