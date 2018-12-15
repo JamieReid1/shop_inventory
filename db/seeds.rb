@@ -5,6 +5,7 @@ require_relative('../models/product')
 require_relative('../models/stock')
 
 
+Stock.delete_all()
 Product.delete_all()
 Manufacturer.delete_all()
 
@@ -72,7 +73,6 @@ product8 = Product.new({ 'name' => '5mm Kevlar® Superstretch Gloves',
                         })
 product8.save()
 
-#Product.all()
 
 manufacturer1 = Manufacturer.new({ 'name' => 'Kirby Morgan',
                                    'address' => '1430 Jason Way, Santa Maria, CA 93455, USA',
@@ -102,23 +102,31 @@ manufacturer4 = Manufacturer.new({ 'name' => 'Northern Diver',
                                   })
 manufacturer4.save()
 
+
 stock_item1 = Stock.new({ 'product_id' => product1.id, 'manufacturer_id' => manufacturer1.id, 'quantity' => 2 })
+stock_item1.save()
 
 stock_item2 = Stock.new({ 'product_id' => product2.id, 'manufacturer_id' => manufacturer1.id, 'quantity' => 6 })
+stock_item2.save()
 
 stock_item3 = Stock.new({ 'product_id' => product3.id, 'manufacturer_id' => manufacturer1.id, 'quantity' => 3 })
+stock_item3.save()
 
 stock_item4 = Stock.new({ 'product_id' => product4.id, 'manufacturer_id' => manufacturer2.id, 'quantity' => 6 })
+stock_item4.save()
 
 stock_item5 = Stock.new({ 'product_id' => product5.id, 'manufacturer_id' => manufacturer3.id, 'quantity' => 10 })
+stock_item5.save()
 
 stock_item6 = Stock.new({ 'product_id' => product6.id, 'manufacturer_id' => manufacturer3.id, 'quantity' => 2 })
+stock_item6.save()
 
 stock_item7 = Stock.new({ 'product_id' => product7.id, 'manufacturer_id' => manufacturer4.id, 'quantity' => 20 })
+stock_item7.save()
 
 stock_item8 = Stock.new({ 'product_id' => product8.id, 'manufacturer_id' => manufacturer4.id, 'quantity' => 10 })
+stock_item8.save()
 
 
-
-# binding.pry
-# nil
+binding.pry
+nil

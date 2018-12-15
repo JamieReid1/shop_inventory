@@ -1,6 +1,7 @@
 
 require_relative('../db/sql_runner.rb')
 
+
 class Product
 
   attr_reader :id
@@ -32,8 +33,7 @@ class Product
   def self.all()
     sql = "SELECT * FROM products"
     products = SqlRunner.run(sql)
-    product = products.map{ |product| Product.new(product) }
-    return product
+    return products.map{ |product| Product.new(product) }
   end
 
   def self.find(id)
@@ -64,6 +64,15 @@ class Product
     sql = "DELETE FROM products WHERE id = $1"
     values = [id]
     SqlRunner.run(sql, values)
+  end
+
+  def manufacturer()
+    sql = "SELECT manufacturers.* FROM
+           manufacturers INNER JOIN stock_items
+           ON manufacturers.id = stock_items.manufacturer_id WHERE stock_items.product_id = $1"
+    values = [@id]
+    manufacturers = SqlRunner.run(sql, values)
+    return manufacturers.map { |manufacturer| Manufacturer.new(manufacturer) }
   end
 
 
