@@ -15,6 +15,12 @@ get '/products/:id' do
   @product = @stock.product
   erb( :'products/update' )
 end
+# params = manufacturer id, how do i get stock quantity from manufacturer id
+get '/products/show/:id' do
+  @manufacturer = Manufacturer.find(params['id'])
+  @products = @manufacturer.products
+  erb(:'products/show')
+end
 
 post '/products/:id' do
   stock = Stock.new(params)

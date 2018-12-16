@@ -1,0 +1,29 @@
+
+<h1> Products </h1>
+
+<table>
+    <tr>
+      <th id="tl"> Name </th>
+      <th> Category </th>
+      <th> Description </th>
+      <th> Buy Cost </th>
+      <th> Sell Cost </th>
+      <th> Quantity </th>
+      <th id="tr"> </th>
+    </tr>
+  <% for product in @products %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.category %></td>
+      <td><%= product.description %></td>
+      <td><%= product.buy_cost %></td>
+      <td><%= product.sell_cost %></td>
+      <td><%= @stock.quantity %> </td>
+      <td>
+        <form action="/products/<%= @stock.id %>" method="post">
+          <button type="submit"> Update </button>
+        </form>
+      </td>
+    </tr>
+  <% end %>
+</table>
