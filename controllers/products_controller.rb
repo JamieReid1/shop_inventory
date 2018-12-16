@@ -15,10 +15,6 @@ get '/products/:id' do
   erb( :'products/update' )
 end
 
-# get '/products/:id/update' do
-#
-# end
-
 post '/products/:id' do
   stock = Stock.new(params).update
   product = Product.new(stock)

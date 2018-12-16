@@ -34,6 +34,7 @@ td {
   background-color: #f2f2f2;
   border: 1px solid lightgrey;
   padding: 10px 0;
+  align-items: center;
 }
 button[type="submit"] {
   background-color: rgb(37, 93, 168);

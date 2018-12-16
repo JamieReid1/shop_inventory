@@ -1,0 +1,20 @@
+
+<h1> Manufacturer </h1>
+
+<form class="update_form" action="/products/<%= @stock.manufacturer.id %>" method="post">
+
+    <label for="name">Name</label> <br>
+    <input type="text" id="name" name="name" value="<%= @stock.manufacturer.name %>">
+      <br>
+    <label for="adrress">Address</label> <br>
+    <input type="text" id="address" name="address" value="<%= @stock.manufacturer.address %>">
+      <br>
+    <label for="tel_no">Tel No.</label> <br>
+    <input type="text" id="tel_no" name="tel_no" value="<%= @stock.manufacturer.tel_no %>">
+      <br>
+    <label for="rep_name">Representative Name</label> <br>
+    <input type="text" id="rep_name" name="rep_name" value="<%= @stock.manufacturer.rep_name %>">
+      <br>
+    <button type="submit"> Update </button>
+
+</form>
