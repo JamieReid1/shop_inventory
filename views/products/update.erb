@@ -1,22 +1,22 @@
 
 <h1> Product </h1>
 
-<form class="update_form" action="/products/<%= @stock.product.id %>" method="post">
+<form class="update_form" action="/products/<%= @stock.id %>" method="post">
 
     <label for="name">Name</label> <br>
-    <input type="text" id="name" name="name" value="<%= @stock.product.name %>">
+    <input type="text" id="name" name="name" value="<%= @product.name %>">
       <br>
     <label for="category">Category</label> <br>
-    <input type="text" id="category" name="category" value="<%= @stock.product.category %>">
+    <input type="text" id="category" name="category" value="<%= @product.category %>">
       <br>
     <label for="description">Description</label> <br>
-    <input type="text" id="description" name="description" value="<%= @stock.product.description %>">
+    <input type="text" id="description" name="description" value="<%= @product.description %>">
       <br>
     <label for="buy_cost">Buy Cost</label> <br>
-    <input type="number" id="buy_cost" name="buy_cost" value="<%= @stock.product.buy_cost %>">
+    <input type="number" id="buy_cost" name="buy_cost" value="<%= @product.buy_cost %>">
       <br>
     <label for="sell_cost">Sell Cost</label> <br>
-    <input type="number" id="sell_cost" name="sell_cost" value="<%= @stock.product.sell_cost %>">
+    <input type="number" id="sell_cost" name="sell_cost" value="<%= @product.sell_cost %>">
       <br>
     <label for="quantity">Quantity</label> <br>
     <input type="number" id="quantity" name="quantity" value="<%= @stock.quantity %>">

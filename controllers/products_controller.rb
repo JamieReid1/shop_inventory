@@ -12,12 +12,21 @@ end
 
 get '/products/:id' do
   @stock = Stock.find(params['id'])
+  @product = @stock.product
   erb( :'products/update' )
 end
 
 post '/products/:id' do
-  stock = Stock.new(params).update
-  product = Product.new(stock)
-  binding.pry
+  stock = Stock.new(params)
+  @stock = Stock.find(params['id'])
+  @stock.quantity = params['quantity']
+  @stock.update()
+  product = stock.product
+  product.name = params['name']
+  product.category = params['category']
+  product.description = params['description']
+  product.buy_cost = params['buy_cost']
+  product.sell_cost = params['sell_cost']
+  product.update()
   redirect to ('/products')
 end
