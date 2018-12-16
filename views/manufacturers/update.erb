@@ -1,7 +1,7 @@
 
 <h1> Manufacturer </h1>
 
-<form class="update_form" action="/products/<%= @stock.manufacturer.id %>" method="post">
+<form class="update_form" action="/manufacturer/<%= @stock.id %>" method="post">
 
     <label for="name">Name</label> <br>
     <input type="text" id="name" name="name" value="<%= @stock.manufacturer.name %>">
