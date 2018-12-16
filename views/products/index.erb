@@ -2,34 +2,34 @@
 <h1> Products </h1>
 
 <table>
-  <tr>
-    <th> Name </th>
-    <th> Category </th>
-    <th> Description </th>
-    <th> Buy Cost </th>
-    <th> Sell Cost </th>
-    <th> Quantity </th>
-    <th> </th>
-    <th> </th>
-  </tr>
-  <% for product in @products %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.category %></td>
-    <td><%= product.description %></td>
-    <td><%= product.buy_cost %></td>
-    <td><%= product.sell_cost %></td>
-    <td><%= product.quantity %></td>
-    <td>
-      <form action="/products/manufacturer" method="get">
-        <button type="submit"> Manufacturer </button>
-      </form>
-    </td>
-    <td>
-      <form action="/products/<%= product.id %>" method="get">
-        <button type="submit"> Update </button>
-      </form>
-    </td>
-  </tr>
+    <tr>
+      <th id="tl"> Name </th>
+      <th> Category </th>
+      <th> Description </th>
+      <th> Buy Cost </th>
+      <th> Sell Cost </th>
+      <th> Quantity </th>
+      <th> </th>
+      <th id="tr"> </th>
+    </tr>
+  <% for stock in @stocks %>
+    <tr>
+      <td><%= stock.product.name %></td>
+      <td><%= stock.product.category %></td>
+      <td><%= stock.product.description %></td>
+      <td><%= stock.product.buy_cost %></td>
+      <td><%= stock.product.sell_cost %></td>
+      <td><%= stock.quantity %> </td>
+      <td>
+        <form action="/products/manufacturer" method="get">
+          <button type="submit"> Manufacturer </button>
+        </form>
+      </td>
+      <td>
+        <form action="/products/<%= stock.id %>" method="get">
+          <button type="submit"> Update </button>
+        </form>
+      </td>
+    </tr>
   <% end %>
 </table>
