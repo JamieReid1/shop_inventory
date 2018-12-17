@@ -18,3 +18,8 @@ post '/manufacturer/:id/update' do
   Manufacturer.new(params).update()
   redirect to ('/manufacturers')
 end
+
+post '/manufacturer/:id/delete' do
+  Manufacturer.delete(params['id'])
+  redirect to ('/manufacturers')
+end

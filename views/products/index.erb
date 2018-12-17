@@ -10,6 +10,7 @@
       <th> Sell Cost </th>
       <th> Quantity </th>
       <th> </th>
+      <th> </th>
       <th id="tr"> </th>
     </tr>
   <% for product in @products %>
@@ -28,6 +29,11 @@
       <td>
         <form action="/products/<%= product.id %>" method="get">
           <button type="submit"> Update </button>
+        </form>
+      </td>
+      <td>
+        <form action="/products/<%= product.id %>/delete" method="post">
+          <button type="submit"> Delete </button>
         </form>
       </td>
     </tr>

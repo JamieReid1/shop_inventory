@@ -24,3 +24,8 @@ post '/products/:id/update' do
   Product.new(params).update()
   redirect to ('/products')
 end
+
+post '/products/:id/delete' do
+  Product.delete(params['id'])
+  redirect to ('/products')
+end

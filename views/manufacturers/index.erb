@@ -3,12 +3,13 @@
 
 <table>
   <thead>
-    <th> Name </th>
+    <th id="tl"> Name </th>
     <th> Address </th>
     <th> Tel. No. </th>
     <th> Rep Name </th>
     <th>  </th>
     <th>  </th>
+    <th id="tr">  </th>
   </thead>
   <% for manufacturer in @manufacturers %>
   <tr>
@@ -16,12 +17,21 @@
     <td><%= manufacturer.address %></td>
     <td><%= manufacturer.tel_no %></td>
     <td><%= manufacturer.rep_name %></td>
+    <td>
       <form action="/products/show/<%= manufacturer.id %>" method="get">
-        <td> <button type="submit"> Products </button> </td>
+        <button type="submit"> Products </button>
       </form>
+    </td>
+    <td>
       <form class="" action="/manufacturer/<%= manufacturer.id %>" method="get">
-        <td> <button type="submit"> Update </button> </td>
+        <button type="submit"> Update </button>
       </form>
+    </td>
+    <td>
+      <form class="" action="/manufacturer/<%= manufacturer.id %>/delete" method="post">
+        <button type="submit"> Delete </button>
+      </form>
+    </td>
   </tr>
   <% end %>
 </table>

@@ -19,15 +19,19 @@ table {
   border-collapse: collapse;
 }
 th {
+  border-collapse: collapse;
+  border: 1px solid lightgrey;
   padding: 4px 30px 4px 8px;
   background-color: rgb(37, 93, 168);
   text-align: left;
   color: white;
 }
 #tl {
+  border: 1px solid lightgrey;
   border-radius: 8px 0 0 0;
 }
 #tr {
+  border: 1px solid lightgrey;
   border-radius: 0 8px 0 0;
 }
 td {
