@@ -127,6 +127,6 @@ stock_item7.save()
 stock_item8 = Stock.new({ 'product_id' => product8.id, 'manufacturer_id' => manufacturer4.id, 'quantity' => 10 })
 stock_item8.save()
 
-product1.quantity()
+
 # binding.pry
 # nil

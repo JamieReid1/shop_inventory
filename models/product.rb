@@ -84,5 +84,14 @@ class Product
     return quantity[0]['quantity'].to_i
   end
 
+  def stock()
+    sql = "SELECT stocks.* From
+           stocks INNER JOIN products
+           ON stocks.product_id = products.id Where product_id = $1"
+    values = [@id]
+    stock = SqlRunner.run(sql, values)
+    return stock
+  end
+
 
 end

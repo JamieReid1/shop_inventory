@@ -10,16 +10,18 @@
     <th>  </th>
     <th>  </th>
   </thead>
-  <% for manufacturer in @manufacturers %>
+  <% for stock in @stock %>
   <tr>
-    <td><%= manufacturer.name %></td>
-    <td><%= manufacturer.address %></td>
-    <td><%= manufacturer.tel_no %></td>
-    <td><%= manufacturer.rep_name %></td>
-      <form action="/products/show/<%= manufacturer.id %>" method="get">
+    <td><%= stock.manufacturer.name %></td>
+    <td><%= stock.manufacturer.address %></td>
+    <td><%= stock.manufacturer.tel_no %></td>
+    <td><%= stock.manufacturer.rep_name %></td>
+      <form action="/products/show/<%= stock.manufacturer.id %>" method="get">
         <td> <button type="submit"> Products </button> </td>
       </form>
-    <td> <button type="submit"> Update </button> </td>
+      <form class="" action="/manufacturer/<%= stock.manufacturer.id %>" method="get">
+        <td> <button type="submit"> Update </button> </td>
+      </form>
   </tr>
   <% end %>
 </table>
