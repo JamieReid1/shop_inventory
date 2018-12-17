@@ -14,7 +14,9 @@ class TestProduct < MiniTest::Test
                 'category' => 'helmets',
                 'description' => 'Carbon fibre shell, SuperFlow regulator, neck dam clamp with hinged yoke.',
                 'buy_cost' => 4000,
-                'sell_cost' => 5600
+                'sell_cost' => 5600,
+                'quantity' => 2,
+                'manufacturer_id' => 1
               }
 
     @product = Product.new(options)
@@ -40,6 +42,10 @@ class TestProduct < MiniTest::Test
 
   def test_product_cost__sell()
     assert_equal(5600, @product.sell_cost)
+  end
+
+  def test_product_quantity()
+    assert_equal(2, @product.quantity)
   end
 
 

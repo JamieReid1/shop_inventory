@@ -1,16 +1,7 @@
 
-DROP TABLE stocks;
 DROP TABLE products CASCADE;
 DROP TABLE manufacturers CASCADE;
 
-CREATE TABLE products (
-  id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255),
-  category VARCHAR(255),
-  description TEXT,
-  buy_cost INT4,
-  sell_cost INT4
-);
 
 CREATE TABLE manufacturers (
   id SERIAL8 PRIMARY KEY,
@@ -20,9 +11,13 @@ CREATE TABLE manufacturers (
   rep_name VARCHAR(255)
 );
 
-CREATE TABLE stocks (
+CREATE TABLE products (
   id SERIAL8 PRIMARY KEY,
-  product_id INT4 REFERENCES products(id) ON DELETE CASCADE,
-  manufacturer_id INT4 REFERENCES manufacturers(id) ON DELETE CASCADE,
-  quantity INT4
+  name VARCHAR(255),
+  category VARCHAR(255),
+  description TEXT,
+  buy_cost INT4,
+  sell_cost INT4,
+  quantity INT4,
+  manufacturer_id INT4 REFERENCES manufacturers(id) ON DELETE CASCADE
 );

@@ -5,7 +5,7 @@ require_relative('../db/sql_runner.rb')
 class Product
 
   attr_reader :id
-  attr_accessor :name, :category, :description, :buy_cost, :sell_cost
+  attr_accessor :name, :category, :description, :buy_cost, :sell_cost, :quantity
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -14,6 +14,7 @@ class Product
     @description = options['description']
     @buy_cost = options['buy_cost'].to_i
     @sell_cost = options['sell_cost'].to_i
+    @quantity = options['quantity'].to_i
   end
 
 
@@ -73,24 +74,6 @@ class Product
     values = [@id]
     manufacturers = SqlRunner.run(sql, values)
     return manufacturers.map { |manufacturer| Manufacturer.new(manufacturer) }
-  end
-
-  def quantity()
-    sql = "SELECT stocks.quantity From
-           stocks INNER JOIN products
-           ON stocks.product_id = products.id Where product_id = $1"
-    values = [@id]
-    quantity = SqlRunner.run(sql, values)
-    return quantity[0]['quantity'].to_i
-  end
-
-  def stock()
-    sql = "SELECT stocks.* From
-           stocks INNER JOIN products
-           ON stocks.product_id = products.id Where product_id = $1"
-    values = [@id]
-    stock = SqlRunner.run(sql, values)
-    return stock
   end
 
 
