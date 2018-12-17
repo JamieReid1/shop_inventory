@@ -5,7 +5,7 @@ require_relative('../db/sql_runner.rb')
 class Manufacturer
 
   attr_reader :id
-  attr_accessor :name, :address, :rep_name, :tel_no
+  attr_accessor :name, :address, :tel_no, :rep_name 
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -43,11 +43,11 @@ class Manufacturer
 
   def update()
     sql = "UPDATE manufacturers SET ( name,
-                                 address,
-                                 tel_no,
-                                 rep_name
-                                ) = ( $1, $2, $3, $4 )
-                                WHERE id = $5"
+                                      address,
+                                      tel_no,
+                                      rep_name
+                                     ) = ( $1, $2, $3, $4 )
+                                     WHERE id = $5"
     values = [@name, @address, @tel_no, @rep_name, @id]
     SqlRunner.run(sql, values)
   end
@@ -65,8 +65,8 @@ class Manufacturer
 
   def products()
     sql = "SELECT products.* FROM
-           products INNER JOIN stocks
-           ON products.id = stocks.product_id WHERE stocks.manufacturer_id = $1"
+           products INNER JOIN manufacturers
+           ON products.manufacturer_id = manufacturer.id WHERE manufacturer.id = $1"
     values = [@id]
     products = SqlRunner.run(sql, values)
     return products.map { |product| Product.new(product) }

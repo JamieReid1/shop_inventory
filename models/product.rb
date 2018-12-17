@@ -5,7 +5,7 @@ require_relative('../db/sql_runner.rb')
 class Product
 
   attr_reader :id
-  attr_accessor :name, :category, :description, :buy_cost, :sell_cost, :quantity
+  attr_accessor :name, :category, :description, :buy_cost, :sell_cost, :quantity, :manufacturer_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -15,6 +15,7 @@ class Product
     @buy_cost = options['buy_cost'].to_i
     @sell_cost = options['sell_cost'].to_i
     @quantity = options['quantity'].to_i
+    @manufacturer_id = options['manufacturer_id'].to_i
   end
 
 
@@ -23,10 +24,12 @@ class Product
                                   category,
                                   description,
                                   buy_cost,
-                                  sell_cost
-                                ) VALUES ( $1, $2, $3, $4, $5 )
+                                  sell_cost,
+                                  quantity,
+                                  manufacturer_id
+                                ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
            RETURNING id"
-    values = [@name, @category, @description, @buy_cost, @sell_cost]
+    values = [@name, @category, @description, @buy_cost, @sell_cost, @quantity, @manufacturer_id]
     results = SqlRunner.run(sql, values)
     @id = results.first['id'].to_i
   end
@@ -49,10 +52,12 @@ class Product
                                  category,
                                  description,
                                  buy_cost,
-                                 sell_cost
-                                ) = ( $1, $2, $3, $4, $5 )
-                                WHERE id = $6"
-    values = [@name, @category, @description, @buy_cost, @sell_cost, @id]
+                                 sell_cost,
+                                 quantity,
+                                 manufacturer_id
+                                ) = ( $1, $2, $3, $4, $5, $6, $7 )
+                                WHERE id = $8"
+    values = [@name, @category, @description, @buy_cost, @sell_cost, @quantity, @manufacturer_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -69,8 +74,8 @@ class Product
 
   def manufacturer()
     sql = "SELECT manufacturers.* FROM
-           manufacturers INNER JOIN stocks
-           ON manufacturers.id = stocks.manufacturer_id WHERE stocks.product_id = $1"
+           manufacturers INNER JOIN products
+           ON manufacturers.id = products.manufacturer_id WHERE product.id = $1"
     values = [@id]
     manufacturers = SqlRunner.run(sql, values)
     return manufacturers.map { |manufacturer| Manufacturer.new(manufacturer) }
