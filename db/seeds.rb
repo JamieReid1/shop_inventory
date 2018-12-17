@@ -2,76 +2,10 @@
 require('pry')
 require_relative('../models/manufacturer')
 require_relative('../models/product')
-require_relative('../models/stock')
 
 
-Stock.delete_all()
 Product.delete_all()
 Manufacturer.delete_all()
-
-product1 = Product.new({ 'name' => 'Superlite 17B',
-                         'category' => 'helmets',
-                         'description' => 'Carbon fibre shell, SuperFlow regulator, neck dam clamp with hinged yoke.',
-                         'buy_cost' => 4000,
-                         'sell_cost' => 5600
-                        })
-product1.save()
-
-product2 = Product.new({ 'name' => 'Superlite 27',
-                         'category' => 'helmets',
-                         'description' => 'Carbon fibre shell, SuperFlow 350 regulator, neck dam ring with hinged locking collar and pull pins.',
-                         'buy_cost' => 4200,
-                         'sell_cost' => 5800
-                        })
-product2.save()
-
-product3 = Product.new({ 'name' => '37SS',
-                         'category' => 'helmets',
-                         'description' => 'Stainless steel shell, REX regulator, neck dam ring with hinged locking collar and pull pins.',
-                         'buy_cost' => 5900,
-                         'sell_cost' => 7500
-                        })
-product3.save()
-
-product4 = Product.new({ 'name' => 'SMP Fibroline 100m',
-                         'category' => 'umbillicals',
-                         'description' => '100m twisted umbillical, 4 part - air, pneumo, comms, video, with end fittings.',
-                         'buy_cost' => 3000,
-                         'sell_cost' => 4500
-                        })
-product4.save()
-
-product5 = Product.new({ 'name' => 'DS1 DIN',
-                         'category' => 'first stages',
-                         'description' => 'Sealed first stage, 1 x low ,1 x high pressure ports, 300 bar DIN fitting.',
-                         'buy_cost' => 130,
-                         'sell_cost' => 200
-                        })
-product5.save()
-
-product6 = Product.new({ 'name' => 'DS1 A-clamp',
-                         'category' => 'first stages',
-                         'description' => 'Sealed first stage, 1 x low ,1 x high pressure ports, 232 bar A-clamp fitting.',
-                         'buy_cost' => 80,
-                         'sell_cost' => 130
-                        })
-product6.save()
-
-product7 = Product.new({ 'name' => '5mm Neoprene Gloves',
-                         'category' => 'gloves',
-                         'description' => '5mm basic neoprene diving gloves.',
-                         'buy_cost' => 7,
-                         'sell_cost' => 15
-                        })
-product7.save()
-
-product8 = Product.new({ 'name' => '5mm Kevlar® Superstretch Gloves',
-                         'category' => 'gloves',
-                         'description' => '5mm neoprene, kevlar reinforced diving gloves.',
-                         'buy_cost' => 20,
-                         'sell_cost' => 30
-                        })
-product8.save()
 
 
 manufacturer1 = Manufacturer.new({ 'name' => 'Kirby Morgan',
@@ -103,29 +37,85 @@ manufacturer4 = Manufacturer.new({ 'name' => 'Northern Diver',
 manufacturer4.save()
 
 
-stock_item1 = Stock.new({ 'product_id' => product1.id, 'manufacturer_id' => manufacturer1.id, 'quantity' => 2 })
-stock_item1.save()
+product1 = Product.new({ 'name' => 'Superlite 17B',
+                         'category' => 'helmets',
+                         'description' => 'Carbon fibre shell, SuperFlow regulator, neck dam clamp with hinged yoke.',
+                         'buy_cost' => 4000,
+                         'sell_cost' => 5600,
+                         'quantity' => 2,
+                         'manufacturer_id' => manufacturer1.id
+                        })
+product1.save()
 
-stock_item2 = Stock.new({ 'product_id' => product2.id, 'manufacturer_id' => manufacturer1.id, 'quantity' => 6 })
-stock_item2.save()
+product2 = Product.new({ 'name' => 'Superlite 27',
+                         'category' => 'helmets',
+                         'description' => 'Carbon fibre shell, SuperFlow 350 regulator, neck dam ring with hinged locking collar and pull pins.',
+                         'buy_cost' => 4200,
+                         'sell_cost' => 5800,
+                         'quantity' => 6,
+                         'manufacturer_id' => manufacturer1.id
+                        })
+product2.save()
 
-stock_item3 = Stock.new({ 'product_id' => product3.id, 'manufacturer_id' => manufacturer1.id, 'quantity' => 3 })
-stock_item3.save()
+product3 = Product.new({ 'name' => '37SS',
+                         'category' => 'helmets',
+                         'description' => 'Stainless steel shell, REX regulator, neck dam ring with hinged locking collar and pull pins.',
+                         'buy_cost' => 5900,
+                         'sell_cost' => 7500,
+                         'quantity' => 3,
+                         'manufacturer_id' => manufacturer1.id
+                        })
+product3.save()
 
-stock_item4 = Stock.new({ 'product_id' => product4.id, 'manufacturer_id' => manufacturer2.id, 'quantity' => 6 })
-stock_item4.save()
+product4 = Product.new({ 'name' => 'SMP Fibroline 100m',
+                         'category' => 'umbillicals',
+                         'description' => '100m twisted umbillical, 4 part - air, pneumo, comms, video, with end fittings.',
+                         'buy_cost' => 3000,
+                         'sell_cost' => 4500,
+                         'quantity' => 6,
+                         'manufacturer_id' => manufacturer2.id
+                        })
+product4.save()
 
-stock_item5 = Stock.new({ 'product_id' => product5.id, 'manufacturer_id' => manufacturer3.id, 'quantity' => 10 })
-stock_item5.save()
+product5 = Product.new({ 'name' => 'DS1 DIN',
+                         'category' => 'first stages',
+                         'description' => 'Sealed first stage, 1 x low ,1 x high pressure ports, 300 bar DIN fitting.',
+                         'buy_cost' => 130,
+                         'sell_cost' => 200,
+                         'quantity' => 6,
+                         'manufacturer_id' => manufacturer3.id
+                        })
+product5.save()
 
-stock_item6 = Stock.new({ 'product_id' => product6.id, 'manufacturer_id' => manufacturer3.id, 'quantity' => 2 })
-stock_item6.save()
+product6 = Product.new({ 'name' => 'DS1 A-clamp',
+                         'category' => 'first stages',
+                         'description' => 'Sealed first stage, 1 x low ,1 x high pressure ports, 232 bar A-clamp fitting.',
+                         'buy_cost' => 80,
+                         'sell_cost' => 130,
+                         'quantity' => 2,
+                         'manufacturer_id' => manufacturer3.id
+                        })
+product6.save()
 
-stock_item7 = Stock.new({ 'product_id' => product7.id, 'manufacturer_id' => manufacturer4.id, 'quantity' => 20 })
-stock_item7.save()
+product7 = Product.new({ 'name' => '5mm Neoprene Gloves',
+                         'category' => 'gloves',
+                         'description' => '5mm basic neoprene diving gloves.',
+                         'buy_cost' => 7,
+                         'sell_cost' => 15,
+                         'quantity' => 20,
+                         'manufacturer_id' => manufacturer4.id
+                        })
+product7.save()
 
-stock_item8 = Stock.new({ 'product_id' => product8.id, 'manufacturer_id' => manufacturer4.id, 'quantity' => 10 })
-stock_item8.save()
+product8 = Product.new({ 'name' => '5mm Kevlar® Superstretch Gloves',
+                         'category' => 'gloves',
+                         'description' => '5mm neoprene, kevlar reinforced diving gloves.',
+                         'buy_cost' => 20,
+                         'sell_cost' => 30,
+                         'quantity' => 10,
+                         'manufacturer_id' => manufacturer4.id
+                        })
+product8.save()
 
 
 # binding.pry
