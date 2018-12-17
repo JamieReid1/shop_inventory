@@ -1,7 +1,7 @@
 
 <h1> Product </h1>
 
-<form class="update_form" action="/products/<%= @stock.id %>" method="post">
+<form class="update_form" action="/products/<%= @product.id %>/update" method="post">
 
     <label for="name">Name</label> <br>
     <input type="text" id="name" name="name" value="<%= @product.name %>">
@@ -19,7 +19,7 @@
     <input type="number" id="sell_cost" name="sell_cost" value="<%= @product.sell_cost %>">
       <br>
     <label for="quantity">Quantity</label> <br>
-    <input type="number" id="quantity" name="quantity" value="<%= @stock.quantity %>">
+    <input type="number" id="quantity" name="quantity" value="<%= @product.quantity %>">
       <br>
     <button type="submit"> Update </button>
 

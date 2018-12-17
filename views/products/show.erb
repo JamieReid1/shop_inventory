@@ -20,7 +20,7 @@
       <td><%= product.sell_cost %></td>
       <td><%= product.quantity %> </td>
       <td>
-        <form action="/products/<%= product.stock[0]['id'].to_i %>" method="get">
+        <form action="/products/<%= product.id %>" method="get">
           <button type="submit"> Update </button>
         </form>
       </td>

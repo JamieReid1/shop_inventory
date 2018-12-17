@@ -5,7 +5,7 @@ require_relative('../db/sql_runner.rb')
 class Manufacturer
 
   attr_reader :id
-  attr_accessor :name, :address, :tel_no, :rep_name 
+  attr_accessor :name, :address, :tel_no, :rep_name
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -66,7 +66,7 @@ class Manufacturer
   def products()
     sql = "SELECT products.* FROM
            products INNER JOIN manufacturers
-           ON products.manufacturer_id = manufacturer.id WHERE manufacturer.id = $1"
+           ON products.manufacturer_id = manufacturers.id WHERE manufacturers.id = $1"
     values = [@id]
     products = SqlRunner.run(sql, values)
     return products.map { |product| Product.new(product) }

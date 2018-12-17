@@ -15,7 +15,7 @@ class Product
     @buy_cost = options['buy_cost'].to_i
     @sell_cost = options['sell_cost'].to_i
     @quantity = options['quantity'].to_i
-    @manufacturer_id = options['manufacturer_id'].to_i
+    @manufacturer_id = options['manufacturer_id'].to_i if options['manufacturer_id']
   end
 
 
@@ -53,11 +53,10 @@ class Product
                                  description,
                                  buy_cost,
                                  sell_cost,
-                                 quantity,
-                                 manufacturer_id
-                                ) = ( $1, $2, $3, $4, $5, $6, $7 )
-                                WHERE id = $8"
-    values = [@name, @category, @description, @buy_cost, @sell_cost, @quantity, @manufacturer_id, @id]
+                                 quantity
+                                ) = ( $1, $2, $3, $4, $5, $6 )
+                                WHERE id = $7"
+    values = [@name, @category, @description, @buy_cost, @sell_cost, @quantity, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -75,7 +74,7 @@ class Product
   def manufacturer()
     sql = "SELECT manufacturers.* FROM
            manufacturers INNER JOIN products
-           ON manufacturers.id = products.manufacturer_id WHERE product.id = $1"
+           ON manufacturers.id = products.manufacturer_id WHERE products.id = $1"
     values = [@id]
     manufacturers = SqlRunner.run(sql, values)
     return manufacturers.map { |manufacturer| Manufacturer.new(manufacturer) }

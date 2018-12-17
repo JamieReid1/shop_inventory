@@ -12,21 +12,21 @@
       <th> </th>
       <th id="tr"> </th>
     </tr>
-  <% for stock in @stocks %>
+  <% for product in @products %>
     <tr>
-      <td><%= stock.product.name %></td>
-      <td><%= stock.product.category %></td>
-      <td><%= stock.product.description %></td>
-      <td><%= stock.product.buy_cost %></td>
-      <td><%= stock.product.sell_cost %></td>
-      <td><%= stock.quantity %> </td>
+      <td><%= product.name %></td>
+      <td><%= product.category %></td>
+      <td><%= product.description %></td>
+      <td><%= product.buy_cost %></td>
+      <td><%= product.sell_cost %></td>
+      <td><%= product.quantity %> </td>
       <td>
-        <form action="/manufacturer/<%= stock.manufacturer_id %>" method="get">
+        <form action="/manufacturer/<%= product.manufacturer_id %>" method="get">
           <button type="submit"> Manufacturer </button>
         </form>
       </td>
       <td>
-        <form action="/products/<%= stock.id %>" method="get">
+        <form action="/products/<%= product.id %>" method="get">
           <button type="submit"> Update </button>
         </form>
       </td>
