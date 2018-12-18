@@ -9,6 +9,16 @@ get '/products' do
   erb( :'products/index' )
 end
 
+get '/products/new' do
+  @manufacturers = Manufacturer.all()
+  erb(:'products/new')
+end
+
+post '/products/new' do
+  Product.new(params).save()
+  redirect to ('/products')
+end
+
 get '/products/:id' do
   @product = Product.find(params['id'])
   erb( :'products/update' )

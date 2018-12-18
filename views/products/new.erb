@@ -1,0 +1,32 @@
+<h1>New Product</h1>
+
+<form class="update_form" action="/products/new" method="post">
+
+  <label for="name">Name</label> <br>
+  <input type="text" id="name" name="name" value="">
+    <br>
+  <label for="category">Category</label> <br>
+  <input type="text" id="category" name="category" value="">
+    <br>
+  <label for="description">Description</label> <br>
+  <input type="text" id="description" name="description" value="">
+    <br>
+  <label for="buy_cost">Buy Cost</label> <br>
+  <input type="number" id="buy_cost" name="buy_cost" value="">
+    <br>
+  <label for="sell_cost">Sell Cost</label> <br>
+  <input type="number" id="sell_cost" name="sell_cost" value="">
+    <br>
+  <label for="quantity">Quantity</label> <br>
+  <input type="number" id="quantity" name="quantity" value="">
+    <br>
+  <label for="manufacturer_id">Manufacturer</label> <br>
+  <select class="manufacturer_id" name="manufacturer_id">
+    <% for manufacturer in @manufacturers %>
+     <option value="<%= manufacturer.id %>"> <%= manufacturer.name %> </option>
+    <% end %>
+  </select>
+    <br>
+  <button type="submit"> Add Product </button>
+
+</form>
