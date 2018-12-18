@@ -5,17 +5,16 @@
     <tr>
       <th id="tl"> Name </th>
       <th>
-                  <% for product in @products %>
-        <form class="filter" action="/products/show/<% product.category %>" method="get">
-                  <% end %>
+
+        <form class="filter" action="/products/category" method="post">
+
           <div class="flex-container">
             <div>
               <select name="category">
                 <option value="" selected disabled hidden>Category</option>
-                <option value="helmets">helmets</option>
-                <option value="umbillicals">Umbilicals</option>
-                <option value="first stages">first stages</option>
-                <option value="gloves">gloves</option>
+                <% for product in @products.uniq { |i| i.category } %>
+                <option value="<%= product.category %>"> <%= product.category %> </option>
+                <% end %>
               </select>
             </div>
             <div>

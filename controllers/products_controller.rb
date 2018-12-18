@@ -27,13 +27,12 @@ end
 get '/products/show/:id' do
   @manufacturer = Manufacturer.find(params['id'])
   @products = @manufacturer.products
-  erb(:'products/show')
+  erb(:'products/index')
 end
 
-get '/products/show/:category' do
+post '/products/category' do
   @products = Product.all_by_category(params['category'])
-  binding.pry
-  erb(:'products/show')
+  erb(:'products/index')
 end
 
 post '/products/:id/update' do
