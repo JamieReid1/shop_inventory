@@ -5,10 +5,12 @@
     <tr>
       <th id="tl"> Name </th>
       <th>
-        <form class="filter" action="/new" method="post">
+                  <% for product in @products %>
+        <form class="filter" action="/products/show/<% product.category %>" method="get">
+                  <% end %>
           <div class="flex-container">
             <div>
-              <select  name="category">
+              <select name="category">
                 <option value="" selected disabled hidden>Category</option>
                 <option value="helmets">helmets</option>
                 <option value="umbillicals">Umbilicals</option>

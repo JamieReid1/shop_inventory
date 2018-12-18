@@ -18,6 +18,15 @@ post '/manufacturers/new' do
   redirect to ('/manufacturers')
 end
 
+get '/manufacturers/new2' do
+  erb(:'manufacturers/new2')
+end
+
+post '/manufacturers/new2' do
+  Manufacturer.new(params).save()
+  redirect to ('/products/new')
+end
+
 get '/manufacturer/:id' do
   @manufacturer = Manufacturer.find(params['id'])
   erb( :'manufacturers/update' )

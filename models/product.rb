@@ -47,6 +47,13 @@ class Product
     return Product.new(product.first)
   end
 
+  def self.all_by_category(category)
+    sql = "SELECT * FROM products WHERE category = $1"
+    values = [category]
+    products = SqlRunner.run(sql, values)
+    return products.map{ |product| Product.new(product) }
+  end
+
   def update()
     sql = "UPDATE products SET ( name,
                                  category,

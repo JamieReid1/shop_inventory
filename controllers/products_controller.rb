@@ -30,6 +30,12 @@ get '/products/show/:id' do
   erb(:'products/show')
 end
 
+get '/products/show/:category' do
+  @products = Product.all_by_category(params['category'])
+  binding.pry
+  erb(:'products/show')
+end
+
 post '/products/:id/update' do
   Product.new(params).update()
   redirect to ('/products')

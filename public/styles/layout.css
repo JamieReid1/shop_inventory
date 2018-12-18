@@ -111,3 +111,13 @@ form input[type="number"] {
   border: none;
   border-radius: 4px;
 }
+.flex-container a {
+  position: relative;
+  top: 17px;
+  border-radius: 4px;
+  background-color: rgb(37, 93, 168);
+  color: white;
+  padding: 5px 20px;
+  font-family: sans-serif;
+  font-size: 12px;
+}

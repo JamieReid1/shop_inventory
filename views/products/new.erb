@@ -20,12 +20,19 @@
   <label for="quantity">Quantity</label> <br>
   <input type="number" id="quantity" name="quantity" value="">
     <br>
-  <label for="manufacturer_id">Manufacturer</label> <br>
-  <select class="manufacturer_id" name="manufacturer_id">
-    <% for manufacturer in @manufacturers %>
-     <option value="<%= manufacturer.id %>"> <%= manufacturer.name %> </option>
-    <% end %>
-  </select>
+  <div class="flex-container">
+    <div>
+      <label for="manufacturer_id">Manufacturer</label> <br>
+      <select class="manufacturer_id" name="manufacturer_id">
+        <% for manufacturer in @manufacturers %>
+        <option value="<%= manufacturer.id %>"> <%= manufacturer.name %> </option>
+        <% end %>
+      </select>
+    </div>
+    <div>
+      <a href="/manufacturers/new2"> New Manufacturer </a>
+    </div>
+  </div>
     <br>
   <button type="submit"> Add Product </button>
 
