@@ -4,7 +4,24 @@
 <table>
     <tr>
       <th id="tl"> Name </th>
-      <th> Category </th>
+      <th>
+        <form class="filter" action="/new" method="post">
+          <div class="flex-container">
+            <div>
+              <select  name="category">
+                <option value="" selected disabled hidden>Category</option>
+                <option value="helmets">helmets</option>
+                <option value="umbillicals">Umbilicals</option>
+                <option value="first stages">first stages</option>
+                <option value="gloves">gloves</option>
+              </select>
+            </div>
+            <div>
+              <button type="submit" name="button">Filter</button>
+            </div>
+          </div>
+        </form>
+      </th>
       <th> Description </th>
       <th> Buy Cost </th>
       <th> Sell Cost </th>
@@ -33,7 +50,7 @@
       </td>
       <td>
         <form action="/products/<%= product.id %>/delete" method="post">
-          <button type="submit"> Delete </button>
+          <button id="delete" type="submit"> Delete </button>
         </form>
       </td>
     </tr>
