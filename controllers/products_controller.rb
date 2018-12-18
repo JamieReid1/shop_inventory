@@ -11,6 +11,7 @@ end
 
 get '/products/new' do
   @manufacturers = Manufacturer.all()
+  @products = Product.all()
   erb(:'products/new')
 end
 
@@ -33,6 +34,10 @@ end
 post '/products/category' do
   @products = Product.all_by_category(params['category'])
   erb(:'products/index')
+end
+
+get '/category/new' do
+  erb(:'products/category')
 end
 
 post '/products/:id/update' do
