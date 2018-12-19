@@ -6,6 +6,7 @@ also_reload( '../models/*' )
 
 get '/products' do
   @products = Product.all()
+  @manufacturers = Manufacturer.all()
   erb( :'products/index' )
 end
 
@@ -33,6 +34,7 @@ end
 
 post '/products/category' do
   @products = Product.all_by_category(params['category'])
+  @manufacturers = Manufacturer.all()
   erb(:'products/index')
 end
 
