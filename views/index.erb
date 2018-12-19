@@ -17,6 +17,10 @@
     <th id="tr"> Total potential profit </th>
   </tr>
   <tr>
-    
+    <% buy_cost_arr = @products.map { |product| product.total_buy_cost } %>
+    <td> <%= buy_cost_arr.sum %> </td>
+    <% sell_cost_arr = @products.map { |product| product.total_sell_cost } %>
+    <td> <%= sell_cost_arr.sum %> </td>
+    <td> <%= sell_cost_arr.sum - buy_cost_arr.sum %></td>
   </tr>
 </table>

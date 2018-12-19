@@ -100,7 +100,6 @@ class Product
     values = [@id]
     products = SqlRunner.run(sql, values)
     product = products.map { |product| Product.new(product) }
-    binding.pry
     return product.first.sell_cost * product.first.quantity
   end
 
