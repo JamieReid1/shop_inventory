@@ -1,26 +1,107 @@
 
-<h1> Stock Tracker </h1>
+    <h1> Dashboard </h1>
 
 
-<form class="update-form" action="/new" method="post">
-  <select class="new" name="type">
-    <option value="product">Product</option>
-    <option value="manufacturer">Manufacturer</option>
-  </select>
-  <button type="submit" name="button">New</button>
-</form>
-  <br>
-<table>
-  <tr>
-    <th id="tl"> Total expenditure </th>
-    <th> Total stock value </th>
-    <th id="tr"> Total potential profit </th>
-  </tr>
-  <tr>
-    <% buy_cost_arr = @products.map { |product| product.total_buy_cost } %>
-    <td> <%= buy_cost_arr.sum %> </td>
-    <% sell_cost_arr = @products.map { |product| product.total_sell_cost } %>
-    <td> <%= sell_cost_arr.sum %> </td>
-    <td> <%= sell_cost_arr.sum - buy_cost_arr.sum %></td>
-  </tr>
-</table>
+  <div class="container-1">
+    <div class="item-1">
+      <form action="/new" method="post">
+        <select class="new" name="type">
+          <option value="product">Product</option>
+          <option value="manufacturer">Manufacturer</option>
+        </select>
+        <button type="submit" name="button">New</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container-2">
+    <div class="item-2">
+      <h2> Total Stock Cost </h2>
+        <% buy_cost_arr = @products.map { |product| product.total_buy_cost } %>
+      <h2> £ <%= buy_cost_arr.sum %> </h2>
+    </div>
+    <div class="item-3">
+      <h2> Total Stock Value </h2>
+        <% sell_cost_arr = @products.map { |product| product.total_sell_cost } %>
+      <h2> £ <%= sell_cost_arr.sum %> </h2>
+    </div>
+    <div class="item-4">
+      <h2> Total Profit Margin </h2>
+      <h2> £ <%= sell_cost_arr.sum - buy_cost_arr.sum %></h2>
+    </div>
+  </div>
+
+  <div class="container-3">
+    <h2> Low Stock Products </h2>
+    <div class="item-5">
+      <table>
+        <col width="220">
+        <col width="100">
+        <col width="400">
+        <col width="75">
+        <col width="75">
+        <col width="65">
+        <col width="65">
+        <col width="65">
+        <col width="55">
+        <thead>
+          <tr>
+            <td id="tl"> Name </td>
+            <td>
+              <form class="filter" action="/products/category" method="post">
+                <div class="flex-container">
+                  <div>
+                    <select name="category">
+                      <option value="" selected disabled hidden>Category</option>
+                      <% for product in @products.uniq { |i| i.category } %>
+                      <%  if product.quantity <= 2 %>
+                      <option value="<%= product.category %>"> <%= product.category %> </option>
+                      <% end %>
+                      <% end %>
+                    </select>
+                  </div>
+                  <div>
+                    <button type="submit" name="button">Filter</button>
+                  </div>
+                </div>
+              </form>
+            </td>
+            <td> Description </td>
+            <td> Buy Cost </td>
+            <td> Sell Cost </td>
+            <td> Quantity </td>
+            <td> </td>
+            <td> </td>
+            <td id="tr"> </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% for product in @products %>
+            <form id="index-update" class="update-form" action="/products/<%= product.id %>/update" method="post">
+              <%  if product.quantity <= 2 %>
+              <td><input type="text" id="name" name="name" value="<%= product.name %>"></td>
+              <td><input type="text" id="category" name="category" value="<%= product.category %>"></td>
+              <td><input type="text" id="description" name="description" value="<%= product.description %>"></td>
+              <td><input type="number" id="buy_cost" name="buy_cost" value="<%= product.buy_cost %>"></td>
+              <td><input type="number" id="sell_cost" name="sell_cost" value="<%= product.sell_cost %>"></td>
+              <td class="<%= product.quantity == 0 ? 'out-of-stock' : product.quantity <= 2 ? 'low' : 'in-stock' %>"><input type="number" id="quantity" name="quantity" value="<%= product.quantity %>"></td>
+              <td><button type="submit"> Update </button></td>
+            </form>
+            <td>
+              <form action="/manufacturer/<%= product.manufacturer_id %>/update/show" method="get">
+                <button type="submit"> Manufacturer </button>
+              </form>
+            </td>
+            <td>
+              <form action="/products/<%= product.id %>/delete" method="post">
+                <button id="delete" type="submit"> Delete </button>
+              </form>
+            </td>
+          </tr>
+          <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

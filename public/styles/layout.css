@@ -1,5 +1,70 @@
-
-
+.container-1 {
+  display: flex;
+  justify-content: center;
+}
+.container-1 form {
+  display: flex;
+  flex-direction: row;
+}
+.container-1 form select {
+  position:relative;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: auto;
+  height: 26px;
+  padding: 0 5px;
+  margin: 10px 5px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+.container-1 form button {
+  margin: 8px 0;
+  background-color: rgba(37, 93, 168, 0.8);
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  color: white;
+  width: 50px;
+}
+.item-1 {
+  align-self: center;
+}
+.container-2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 150px;
+}
+.container-2 h2 {
+  padding: 10px;
+  margin: 0;
+  font-weight: bold;
+}
+.container-3 h2 {
+  margin: 0;
+  color: rgba(37, 93, 168, 0.8);
+}
+.item-2 {
+  background-color: rgba(37, 93, 168, 0.8);
+  border-radius: 8px;
+  color: white;
+  border: 2px solid white;
+}
+.item-3 {
+  background-color: rgba(37, 93, 168, 0.8);
+  border-radius: 8px;
+  color: white;
+  border: 2px solid white;
+}
+.item-4 {
+  background-color: rgba(37, 93, 168, 0.8);
+  border-radius: 8px;
+  color: white;
+  border: 2px solid white;
+}
+.item-5 {
+  position: relative;
+  top: 0px;
+}
 body {
   margin: 0;
   background-image: url('https://images.pexels.com/photos/1092364/pexels-photo-1092364.jpeg?cs=srgb&dl=bricks-brickwall-brickwork-1092364.jpg&fm=jpg');
@@ -17,7 +82,7 @@ a {
   font-weight: bold;
 }
 h1  {
-  color: rgb(37, 93, 168);
+  color: rgba(37, 93, 168, 0.8);
   position: relative;
   text-align: center;
 }

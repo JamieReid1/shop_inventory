@@ -42,7 +42,7 @@ product1 = Product.new({ 'name' => 'Superlite 17B',
                          'description' => 'Carbon fibre shell, SuperFlow regulator, neck dam clamp with hinged yoke.',
                          'buy_cost' => 4000,
                          'sell_cost' => 5600,
-                         'quantity' => 2,
+                         'quantity' => 4,
                          'manufacturer_id' => manufacturer1.id
                         })
 product1.save()
@@ -92,7 +92,7 @@ product6 = Product.new({ 'name' => 'DS1 A-clamp',
                          'description' => 'Sealed first stage, 1 x low ,1 x high pressure ports, 232 bar A-clamp fitting.',
                          'buy_cost' => 80,
                          'sell_cost' => 130,
-                         'quantity' => 2,
+                         'quantity' => 4,
                          'manufacturer_id' => manufacturer3.id
                         })
 product6.save()
