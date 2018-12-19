@@ -90,17 +90,22 @@ class Product
   def total_buy_cost()
     sql = "SELECT * FROM products WHERE id = $1"
     values = [@id]
-    products = SqlRunner.run(sql, values)
-    product = products.map { |product| Product.new(product) }
-    return product.first.buy_cost * product.first.quantity
+    product = SqlRunner.run(sql, values)
+    return product.first['buy_cost'].to_i * product.first['quantity'].to_i
   end
 
   def total_sell_cost()
     sql = "SELECT * FROM products WHERE id = $1"
     values = [@id]
-    products = SqlRunner.run(sql, values)
-    product = products.map { |product| Product.new(product) }
-    return product.first.sell_cost * product.first.quantity
+    product = SqlRunner.run(sql, values)
+    return product.first['sell_cost'].to_i * product.first['quantity'].to_i
+  end
+
+  def sell()
+    sql = "SELECT * FROM products WHERE id = $1"
+    values = [@id]
+    product = SqlRunner.run(sql, values)
+    
   end
 
 
