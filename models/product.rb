@@ -87,5 +87,22 @@ class Product
     return manufacturers.map { |manufacturer| Manufacturer.new(manufacturer) }
   end
 
+  def total_buy_cost()
+    sql = "SELECT * FROM products WHERE id = $1"
+    values = [@id]
+    products = SqlRunner.run(sql, values)
+    product = products.map { |product| Product.new(product) }
+    return product.first.buy_cost * product.first.quantity
+  end
+
+  def total_sell_cost()
+    sql = "SELECT * FROM products WHERE id = $1"
+    values = [@id]
+    products = SqlRunner.run(sql, values)
+    product = products.map { |product| Product.new(product) }
+    binding.pry
+    return product.first.sell_cost * product.first.quantity
+  end
+
 
 end
