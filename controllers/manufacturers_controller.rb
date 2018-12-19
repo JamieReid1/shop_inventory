@@ -29,6 +29,11 @@ end
 
 get '/manufacturer/:id' do
   @manufacturer = Manufacturer.find(params['id'])
+  erb( :'manufacturers/index' )
+end
+
+get '/manufacturer/:id/update/show' do
+  @manufacturer = Manufacturer.find(params['id'])
   erb( :'manufacturers/update' )
 end
 

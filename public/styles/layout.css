@@ -96,7 +96,7 @@ th form button {
 }
 input#name {
   background-color: rgba(255, 255, 255, 0.3);
-  width: auto;
+  width: 200px;
   height: 5px;
   padding: 10px 5px;
   margin: 1px;
@@ -145,6 +145,36 @@ input#sell_cost {
   border-radius: 4px;
 }
 input#quantity {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: auto;
+  height: 5px;
+  padding: 10px 5px;
+  margin: 1px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+input#address {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 500px;
+  height: 5px;
+  padding: 10px 5px;
+  margin: 1px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+input#tel_no {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: auto;
+  height: 5px;
+  padding: 10px 5px;
+  margin: 1px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+input#rep_name {
   background-color: rgba(255, 255, 255, 0.3);
   width: auto;
   height: 5px;

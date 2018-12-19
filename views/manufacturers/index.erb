@@ -12,18 +12,16 @@
   </thead>
   <% for manufacturer in @manufacturers %>
   <tr>
-    <td><%= manufacturer.name %></td>
-    <td><%= manufacturer.address %></td>
-    <td><%= manufacturer.tel_no %></td>
-    <td><%= manufacturer.rep_name %></td>
+    <form id="index-update" class="update-form" action="/manufacturer/<%= manufacturer.id %>/update" method="post">
+      <td><input type="text" id="name" name="name" value="<%= manufacturer.name %>"></td>
+      <td><input type="text" id="address" name="address" value="<%= manufacturer.address %>"></td>
+      <td><input type="text" id="tel_no" name="tel_no" value="<%= manufacturer.tel_no %>"></td>
+      <td><input type="text" id="rep_name" name="rep_name" value="<%= manufacturer.rep_name %>"></td>
+      <td><button type="submit"> Update </button></td>
+    </form>
     <td>
       <form action="/products/show/<%= manufacturer.id %>" method="get">
         <button type="submit"> Products </button>
-      </form>
-    </td>
-    <td>
-      <form class="" action="/manufacturer/<%= manufacturer.id %>" method="get">
-        <button type="submit"> Update </button>
       </form>
     </td>
     <td>
