@@ -1,43 +1,52 @@
 
 
 <table>
+  <col width="240">
+  <col width="100">
+  <col width="110">
+  <col width="150">
+  <col width="75">
+  <col width="65">
+  <col width="65">
   <thead>
-    <th id="tl"> Name </th>
-    <th> Address </th>
-    <th> Tel. No. </th>
-    <th> Rep Name </th>
-    <th>  </th>
-    <th>  </th>
-    <th id="tr">  </th>
+    <td id="tl"> Name </td>
+    <td> Address </td>
+    <td> Tel. No. </td>
+    <td> Rep Name </td>
+    <td>  </td>
+    <td>  </td>
+    <td id="tr">  </td>
   </thead>
-  <tr>
-    <form class="index-update" action="/manufacturers/new" method="post">
-      <td><input type="text" id="name" name="name" value=""></td>
-      <td><input type="text" id="address" name="address" value=""></td>
-      <td><input type="text" id="tel_no" name="tel_no" value=""></td>
-      <td><input type="text" id="rep_name" name="rep_name" value=""></td>
-      <td colspan="3" id="add"><button type="submit"> Add </button></td>
-    </form>
-  </tr>
-  <% for manufacturer in @manufacturers %>
-  <tr>
-    <form id="index-update" class="update-form" action="/manufacturer/<%= manufacturer.id %>/update" method="post">
-      <td><input type="text" id="name" name="name" value="<%= manufacturer.name %>"></td>
-      <td><input type="text" id="address" name="address" value="<%= manufacturer.address %>"></td>
-      <td><input type="text" id="tel_no" name="tel_no" value="<%= manufacturer.tel_no %>"></td>
-      <td><input type="text" id="rep_name" name="rep_name" value="<%= manufacturer.rep_name %>"></td>
-      <td><button type="submit"> Update </button></td>
-    </form>
-    <td>
-      <form action="/products/show/<%= manufacturer.id %>" method="get">
-        <button type="submit"> Products </button>
+  <tbody>
+    <tr>
+      <form class="index-update" action="/manufacturers/new" method="post">
+        <td><input type="text" id="name" name="name" value=""></td>
+        <td><input type="text" id="address" name="address" value=""></td>
+        <td><input type="text" id="tel_no" name="tel_no" value=""></td>
+        <td><input type="text" id="rep_name" name="rep_name" value=""></td>
+        <td colspan="3" id="add"><button type="submit"> Add </button></td>
       </form>
-    </td>
-    <td>
-      <form class="" action="/manufacturer/<%= manufacturer.id %>/delete" method="post">
-        <button id="delete" type="submit"> Delete </button>
+    </tr>
+    <% for manufacturer in @manufacturers %>
+    <tr>
+      <form id="index-update" class="update-form" action="/manufacturer/<%= manufacturer.id %>/update" method="post">
+        <td><input type="text" id="name" name="name" value="<%= manufacturer.name %>"></td>
+        <td><input type="text" id="address" name="address" value="<%= manufacturer.address %>"></td>
+        <td><input type="text" id="tel_no" name="tel_no" value="<%= manufacturer.tel_no %>"></td>
+        <td><input type="text" id="rep_name" name="rep_name" value="<%= manufacturer.rep_name %>"></td>
+        <td><button type="submit"> Update </button></td>
       </form>
-    </td>
-  </tr>
-  <% end %>
+      <td>
+        <form action="/products/show/<%= manufacturer.id %>" method="get">
+          <button type="submit"> Products </button>
+        </form>
+      </td>
+      <td>
+        <form class="" action="/manufacturer/<%= manufacturer.id %>/delete" method="post">
+          <button id="delete" type="submit"> Delete </button>
+        </form>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>

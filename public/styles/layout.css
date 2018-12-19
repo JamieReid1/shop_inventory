@@ -21,16 +21,20 @@ h1  {
   position: relative;
   text-align: center;
 }
+div {
+  text-align:center;
+}
 table {
   margin: 70px 30px;
   border-collapse: collapse;
 }
-th {
+thead td {
   /* border: 1px solid lightgrey; */
   padding: 4px 0 4px 4px;
   background-color: rgba(37, 93, 168, 0.8);
   text-align: left;
   color: white;
+  width: 20px;
 }
 #tl {
   border-radius: 8px 0 0 0;
@@ -41,7 +45,7 @@ th {
 tr:last-child {
   border-radius: 0 0 8px 8px;
 }
-td {
+tbody td {
   background-color: rgba(242, 243, 244, 0.8);
   border: 1px solid rgba(37, 93, 168, 0.2);
   text-align: center;
@@ -62,7 +66,7 @@ td form button {
   border-radius: 4px;
   color: white;
 }
-th form button {
+thead td form button {
   margin: 8px 0;
   background-color: rgba(37, 93, 168, 0);
   border: 1px solid lightgrey;
@@ -81,10 +85,10 @@ th form button {
   color: white;
   border: none;
   font-size: 16px;
-  font-family: serif;
-  font-weight: bold;
-  margin-top: 7px;
-  margin-right: 10px;
+  font-family: sans-serif;
+  margin-top: 4px;
+  margin-right: 0;
+  width: 90px;
 }
 .update-form {
   margin: auto;
@@ -97,7 +101,7 @@ th form button {
 }
 input#name {
   background-color: rgba(255, 255, 255, 0.3);
-  width: 200px;
+  width: 93%;
   height: 5px;
   padding: 10px 5px;
   margin: 1px;
@@ -107,7 +111,7 @@ input#name {
 }
 input#category {
   background-color: rgba(255, 255, 255, 0.3);
-  width: 91%;
+  width: 89%;
   height: 5px;
   padding: 10px 5px;
   margin: 1px;
@@ -117,7 +121,7 @@ input#category {
 }
 input#description {
   background-color: rgba(255, 255, 255, 0.3);
-  width: 90%;
+  width: 96%;
   height: 5px;
   padding: 10px 5px;
   margin: 1px;
@@ -127,7 +131,7 @@ input#description {
 }
 input#buy_cost {
   background-color: rgba(255, 255, 255, 0.3);
-  width: auto;
+  width: 79%;
   height: 5px;
   padding: 10px 5px;
   margin: 1px;
@@ -137,7 +141,7 @@ input#buy_cost {
 }
 input#sell_cost {
   background-color: rgba(255, 255, 255, 0.3);
-  width: auto;
+  width: 79%;
   height: 5px;
   padding: 10px 5px;
   margin: 1px;
@@ -147,7 +151,7 @@ input#sell_cost {
 }
 input#quantity {
   background-color: rgba(255, 255, 255, 0.3);
-  width: auto;
+  width: 77%;
   height: 5px;
   padding: 10px 5px;
   margin: 1px;
@@ -167,7 +171,7 @@ input#address {
 }
 input#tel_no {
   background-color: rgba(255, 255, 255, 0.3);
-  width: auto;
+  width: 87%;
   height: 5px;
   padding: 10px 5px;
   margin: 1px;
@@ -177,7 +181,7 @@ input#tel_no {
 }
 input#rep_name {
   background-color: rgba(255, 255, 255, 0.3);
-  width: auto;
+  width: 90%;
   height: 5px;
   padding: 10px 5px;
   margin: 1px;
@@ -238,9 +242,22 @@ form input[type="number"] {
   border: none;
   border-radius: 4px;
 }
+.update-form div select {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: auto;
+  height: 26px;
+  padding: 0 5px;
+  margin: 1px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+.update-form div {
+  text-align: left;
+}
 .flex-container a {
   position: relative;
-  top: 17px;
+  top: 21px;
   border-radius: 4px;
   background-color: rgba(37, 93, 168, 0.8);
   color: white;

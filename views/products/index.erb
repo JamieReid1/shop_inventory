@@ -1,15 +1,19 @@
 
-
+<div>
 <table>
-  <col width="auto">
-  <col width="auto">
-  <col width="300">
-  <col width="auto">
-  <col width="auto">
-  <col width="auto">
+  <col width="220">
+  <col width="100">
+  <col width="400">
+  <col width="75">
+  <col width="75">
+  <col width="65">
+  <col width="65">
+  <col width="65">
+  <col width="55">
+  <thead>
     <tr>
-      <th id="tl"> Name </th>
-      <th>
+      <td id="tl"> Name </td>
+      <td>
         <form class="filter" action="/products/category" method="post">
           <div class="flex-container">
             <div>
@@ -25,15 +29,17 @@
             </div>
           </div>
         </form>
-      </th>
-      <th> Description </th>
-      <th> Buy Cost </th>
-      <th> Sell Cost </th>
-      <th> Quantity </th>
-      <th> </th>
-      <th> </th>
-      <th id="tr"> </th>
+      </td>
+      <td> Description </td>
+      <td> Buy Cost </td>
+      <td> Sell Cost </td>
+      <td> Quantity </td>
+      <td> </td>
+      <td> </td>
+      <td id="tr"> </td>
     </tr>
+  </thead>
+  <tbody>
     <tr>
       <form class="index-update" action="/products/new" method="post">
         <td><input type="text" id="name" name="name" value=""></td>
@@ -75,5 +81,7 @@
         </form>
       </td>
     </tr>
-  <% end %>
+    <% end %>
+  </tbody>
 </table>
+</div>
