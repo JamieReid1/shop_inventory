@@ -23,10 +23,12 @@ end
 
 get '/products/:id' do
   @product = Product.find(params['id'])
+  @manufacturers = Manufacturer.all()
   erb( :'products/index' )
 end
 
 get '/products/show/:id' do
+  @manufacturers = Manufacturer.all()
   @manufacturer = Manufacturer.find(params['id'])
   @products = @manufacturer.products
   erb(:'products/index')

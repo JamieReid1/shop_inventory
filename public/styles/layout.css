@@ -195,7 +195,7 @@ td select {
   border: 1px solid rgba(37, 93, 168, 0.3);
   border-radius: 4px;
 }
-#add-product button {
+#add button {
   margin: 8px 0;
   background-color: rgba(55, 187, 0, 0.8);
   border: none;
