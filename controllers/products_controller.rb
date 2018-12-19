@@ -22,7 +22,7 @@ end
 
 get '/products/:id' do
   @product = Product.find(params['id'])
-  erb( :'products/update' )
+  erb( :'products/index' )
 end
 
 get '/products/show/:id' do

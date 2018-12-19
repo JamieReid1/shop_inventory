@@ -22,12 +22,12 @@ h1  {
   text-align: center;
 }
 table {
-  margin: 70px 100px;
+  margin: 70px 25px;
   border-collapse: collapse;
 }
 th {
   /* border: 1px solid lightgrey; */
-  padding: 4px 10px 4px 8px;
+  padding: 4px 0 4px 4px;
   background-color: rgba(37, 93, 168, 0.8);
   text-align: left;
   color: white;
@@ -86,13 +86,80 @@ th form button {
   margin-right: 10px;
 }
 .update-form {
-  margin:auto;
+  margin: auto;
   margin: 70px 0 20px 333px ;
   width: 45%;
   border-radius: 5px;
   border: 1px solid rgba(37, 93, 168, 0.3);
   background-color: rgba(237, 237, 237, 0.8);
   padding: 20px;
+}
+input#name {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: auto;
+  height: 5px;
+  padding: 10px 5px;
+  margin: 1px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+input#category {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 90%;
+  height: 5px;
+  padding: 10px 5px;
+  margin: 1px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+input#description {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 95%;
+  height: 5px;
+  padding: 10px 5px;
+  margin: 1px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+input#buy_cost {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: auto;
+  height: 5px;
+  padding: 10px 5px;
+  margin: 1px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+input#sell_cost {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: auto;
+  height: 5px;
+  padding: 10px 5px;
+  margin: 1px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+input#quantity {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: auto;
+  height: 5px;
+  padding: 10px 5px;
+  margin: 1px;
+  display: inline-block;
+  border: 1px solid rgba(37, 93, 168, 0.3);
+  border-radius: 4px;
+}
+ button {
+  margin: 8px 0;
+  background-color: rgba(37, 93, 168, 0.8);
+  border: none;
+  border-radius: 4px;
+  color: white;
 }
 form input[type="text"] {
   background-color: rgba(255, 255, 255, 0.3);

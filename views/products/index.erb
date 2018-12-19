@@ -1,12 +1,16 @@
 
 
 <table>
+  <col width="auto">
+  <col width="auto">
+  <col width="300">
+  <col width="auto">
+  <col width="auto">
+  <col width="auto">
     <tr>
       <th id="tl"> Name </th>
       <th>
-
         <form class="filter" action="/products/category" method="post">
-
           <div class="flex-container">
             <div>
               <select name="category">
@@ -30,29 +34,28 @@
       <th> </th>
       <th id="tr"> </th>
     </tr>
-  <% for product in @products %>
     <tr>
-      <td><%= product.name %></td>
-      <td><%= product.category %></td>
-      <td><%= product.description %></td>
-      <td><%= product.buy_cost %></td>
-      <td><%= product.sell_cost %></td>
-      <td class="<%= product.quantity == 0 ? 'out-of-stock' : product.quantity <= 2 ? 'low' : 'in-stock' %>"><%= product.quantity %> </td>
-      <td>
-        <form action="/manufacturer/<%= product.manufacturer_id %>" method="get">
-          <button type="submit"> Manufacturer </button>
-        </form>
-      </td>
-      <td>
-        <form action="/products/<%= product.id %>" method="get">
-          <button type="submit"> Update </button>
-        </form>
-      </td>
-      <td>
-        <form action="/products/<%= product.id %>/delete" method="post">
-          <button id="delete" type="submit"> Delete </button>
-        </form>
-      </td>
-    </tr>
+          <% for product in @products %>
+    <form id="index-update" class="update-form" action="/products/<%= product.id %>/update" method="post">
+
+        <td><input type="text" id="name" name="name" value="<%= product.name %>"></td>
+        <td><input type="text" id="category" name="category" value="<%= product.category %>"></td>
+        <td><input type="text" id="description" name="description" value="<%= product.description %>"></td>
+        <td><input type="number" id="buy_cost" name="buy_cost" value="<%= product.buy_cost %>"></td>
+        <td><input type="number" id="sell_cost" name="sell_cost" value="<%= product.sell_cost %>"></td>
+        <td class="<%= product.quantity == 0 ? 'out-of-stock' : product.quantity <= 2 ? 'low' : 'in-stock' %>"><input type="number" id="quantity" name="quantity" value="<%= product.quantity %>"></td>
+        <td><button type="submit"> Update </button></td>
+    </form>
+        <td>
+          <form action="/manufacturer/<%= product.manufacturer_id %>" method="get">
+            <button type="submit"> Manufacturer </button>
+          </form>
+        </td>
+        <td>
+          <form action="/products/<%= product.id %>/delete" method="post">
+            <button id="delete" type="submit"> Delete </button>
+          </form>
+        </td>
+      </tr>
   <% end %>
 </table>
