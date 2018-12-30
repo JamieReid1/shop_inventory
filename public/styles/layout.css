@@ -39,6 +39,9 @@
   margin: 0;
   font-weight: bold;
 }
+.container-3 {
+  align-content: center;
+}
 .container-3 h2 {
   margin: 0;
   color: rgba(37, 93, 168, 0.8);
@@ -87,11 +90,14 @@ h1  {
   text-align: center;
 }
 div {
-  text-align:center;
+  text-align: center;
 }
 table {
-  margin: 70px 30px;
+  margin: 30px auto;
   border-collapse: collapse;
+}
+.index-table {
+  margin: 70px auto;
 }
 thead td {
   /* border: 1px solid lightgrey; */

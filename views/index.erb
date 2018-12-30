@@ -47,30 +47,11 @@
         <thead>
           <tr>
             <td id="tl"> Name </td>
-            <td>
-              <form class="filter" action="/products/category" method="post">
-                <div class="flex-container">
-                  <div>
-                    <select name="category">
-                      <option value="" selected disabled hidden>Category</option>
-                      <% for product in @products.uniq { |i| i.category } %>
-                      <%  if product.quantity <= 2 %>
-                      <option value="<%= product.category %>"> <%= product.category %> </option>
-                      <% end %>
-                      <% end %>
-                    </select>
-                  </div>
-                  <div>
-                    <button type="submit" name="button">Filter</button>
-                  </div>
-                </div>
-              </form>
-            </td>
+            <td> Category </td>
             <td> Description </td>
             <td> Buy Cost </td>
             <td> Sell Cost </td>
             <td> Quantity </td>
-            <td> </td>
             <td> </td>
             <td id="tr"> </td>
           </tr>
@@ -86,7 +67,6 @@
               <td><input type="number" id="buy_cost" name="buy_cost" value="<%= product.buy_cost %>"></td>
               <td><input type="number" id="sell_cost" name="sell_cost" value="<%= product.sell_cost %>"></td>
               <td class="<%= product.quantity == 0 ? 'out-of-stock' : product.quantity <= 2 ? 'low' : 'in-stock' %>"><input type="number" id="quantity" name="quantity" value="<%= product.quantity %>"></td>
-              <td><button type="submit"> Update </button></td>
             </form>
             <td>
               <form action="/manufacturer/<%= product.manufacturer_id %>/update/show" method="get">
